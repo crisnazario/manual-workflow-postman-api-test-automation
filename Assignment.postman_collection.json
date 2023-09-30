@@ -124,7 +124,7 @@
 	"variable": [
 		{
 			"key": "githubProjectUrl",
-			"value": "LINK TO YOUR PROJECT",
+			"value": "https://github.com/crisnazario/treinamento-postman-api-test-automation",
 			"type": "string"
 		}
 	]
