@@ -8,5 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
-        with:
-          collection: https://api.postman.com/collections/11061409-9d61b3ea-bae3-4e57-b7b3-033e770bc011?access_key=PMAT-01HBK0T34ASSDRNP1W1DPJ1WJV
+        with: ✅ Assignment #5.postman_collection.json
