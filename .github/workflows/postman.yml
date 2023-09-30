@@ -32,7 +32,7 @@ jobs:
       # Roda a collection do Postman
       - name: Rodar a collection do Postman
         run: |
-          newman run Assignment.postman_collection.json -r htmlextra --reporter-htmlextra-export resultadoTestes/htmlreport.html --reporter-htmlextra-darkTheme  > resultadoTestes/relatorio.html
+          newman run Assignment.postman_collection.json -r htmlextra --reporter-htmlextra-export resultadoTestes/htmlreport.html
 
 
       # Carregue o conteúdo do diretório Test Results para o espaço de trabalho
