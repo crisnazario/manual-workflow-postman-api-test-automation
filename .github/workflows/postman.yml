@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Faz check-out do seu repositório em $GITHUB_WORKSPACE, para que seu trabalho possa acessá-lo
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
 
       # Instala o Node para executar os testes
       - name: Instalar o Node
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v3
         with:
-            node-version: "16.x"
+            node-version: "17.x"
 
 
       # Instala o Newman e o relatório html extra
@@ -37,7 +37,7 @@ jobs:
 
       # Carregue o conteúdo do diretório Test Results para o espaço de trabalho
       - name: Mostrar o relatório
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Resultado dos testes
           path: resultadoTestes
