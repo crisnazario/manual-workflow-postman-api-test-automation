@@ -3,10 +3,39 @@ name: Newman Run
 on: [push]
 
 jobs:
-  newman:
+  test-api:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-        with: 
-          collection: Assignment.postman_collection.json
+      # Faz check-out do seu repositório em $GITHUB_WORKSPACE, para que seu trabalho possa acessá-lo
+      - uses: actions/checkout@v2
+
+
+      # Instala o Node para executar os testes
+      - name: Instalar o Node
+        uses: actions/setup-node@v1
+
+
+      # Instala o Newman e o relatório html extra
+      - name: Instalar o Newman
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+
+
+      # Cria um diretório para fazer upload dos resultados do teste
+      - name: Criar um diretório para os arquivos de saída
+        run: mkdir -p resultadoTestes
+
+
+      # Roda a collection do Postman
+      - name: Rodar a collection do Postman
+        run: |
+          newman run Assignment.postman_collection.json -r htmlextra --reporter-htmlextra-export resultadoTestes/htmlreport.html --reporter-htmlextra-darkTheme  > resultadoTestes/relatorio.html
+
+
+      # Carregue o conteúdo do diretório Test Results para o espaço de trabalho
+      - name: Mostrar o relatório
+        uses: actions/upload-artifact@v2
+        with:
+          name: Resultado dos testes
+          path: resultadoTestes
