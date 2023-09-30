@@ -8,4 +8,5 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
-        with: ✅ Assignment #5.postman_collection.json
+        with: 
+          collection: Assignment.postman_collection.json
