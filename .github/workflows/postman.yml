@@ -13,6 +13,8 @@ jobs:
       # Instala o Node para executar os testes
       - name: Instalar o Node
         uses: actions/setup-node@v1
+        with:
+            node-version: "16.x"
 
 
       # Instala o Newman e o relatório html extra
