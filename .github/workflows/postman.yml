@@ -1,0 +1,15 @@
+name: Newman Run
+
+on:
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: https://elements.getpostman.com/redirect?entityId=11061409-9d61b3ea-bae3-4e57-b7b3-033e770bc011&entityType=collection
